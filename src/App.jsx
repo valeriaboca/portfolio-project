@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Header from "./components/Header";
+import styled, { createGlobalStyle } from "styled-components";
+import DarkModeToggle from "./components/DarkMode";
 
-function App() {
-  const [count, setCount] = useState(0)
+const GlobalStyle = createGlobalStyle`
+  body {
+font-family: 'Raleway', sans-serif;;
+  }
+`;
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter>
+      <GlobalStyle />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+      {/* <Div>By Valeria Bocanegra</Div> */}
+      <DarkModeToggle />
+    </BrowserRouter>
+  );
+};
 
-export default App
+// const Div = styled.div`
+//   font-style: italic;
+//   font-weight: 900;
+//   opacity: 0.4;
+//   font-size: 15px;
+//   display: flex;
+// `;
+
+export default App;
