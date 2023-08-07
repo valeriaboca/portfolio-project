@@ -5,10 +5,34 @@ import HtmlIcon from "../assets/html.png";
 import ReactIcon from "../assets/react.png";
 import NyanCat from "../assets/nyan-cat.jpg";
 import Placeholder from "../assets/placeholder.png";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
+  const [circles, setCircles] = useState([]);
+
+  useEffect(() => {
+    const generateRandomCircles = () => {
+      const newCircles = [];
+      for (let i = 0; i < 10; i++) {
+        const randomTop = Math.floor(Math.random() * window.innerHeight);
+        const randomLeft = Math.floor(Math.random() * window.innerWidth);
+        newCircles.push({ top: randomTop, left: randomLeft });
+      }
+      setCircles(newCircles);
+    };
+
+    generateRandomCircles();
+  }, []);
   return (
     <Container>
+      <div>
+        {circles.map((circle, index) => (
+          <Circle
+            key={index}
+            style={{ top: circle.top + "px", left: circle.left + "px" }}
+          />
+        ))}
+      </div>
       <SkillsDiv>These are my current skils:</SkillsDiv>
       <IconDiv>
         <Icon>
@@ -63,6 +87,15 @@ const Projects = () => {
   );
 };
 
+const Circle = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+`;
+
 const GameText = styled.p`
   text-align: center;
 `;
@@ -102,9 +135,8 @@ const Container = styled.div`
 `;
 
 const SkillsDiv = styled.div`
-  margin: 10px;
-  font-weight: bolder;
-  color: rgba(158, 33, 200, 0.692);
+  margin-left: 25px;
+  font-weight: 900;
 `;
 
 const Images = styled.div`
@@ -161,8 +193,7 @@ const IconDiv = styled.div`
 `;
 
 const Img = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 40px;
 `;
 
 export default Projects;

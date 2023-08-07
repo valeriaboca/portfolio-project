@@ -37,15 +37,14 @@ const ToggleButton = styled.button`
   bottom: 20px;
   right: 20px;
   z-index: 9999;
-  padding: 6px;
+
   cursor: pointer;
   color: ${(props) => (props.darkmode ? "#d2d3db" : "#242424")};
-  background-color: ${(props) => (props.darkmode ? "#242424" : "#fafafa")};
+  background-color: transparent;
 `;
 
 const IconImg = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 40px;
 `;
 
 const GlobalStyles = createGlobalStyle`

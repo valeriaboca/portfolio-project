@@ -6,7 +6,18 @@ import EmailIcon from "../assets/email.png";
 
 const Header = () => {
   return (
-    <>
+    <Container>
+      <Ul>
+        <Li>
+          <Link to="/">Home</Link>
+        </Li>
+        <Li>
+          <Link to="/about">About</Link>
+        </Li>
+        <Li>
+          <Link to="/projects">Projects</Link>
+        </Li>
+      </Ul>
       <Div>
         <Anchor href="mailto:vboca660@gmail.com" target="_blank">
           <Img src={EmailIcon} alt="Email Icon" />
@@ -21,20 +32,14 @@ const Header = () => {
           <Img src={GithubIcon} alt="GitHub Icon" />
         </Anchor>
       </Div>
-      <Ul>
-        <Li>
-          <Link to="/">Home</Link>
-        </Li>
-        <Li>
-          <Link to="/about">About</Link>
-        </Li>
-        <Li>
-          <Link to="/projects">Projects</Link>
-        </Li>
-      </Ul>
-    </>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+`;
 
 const Anchor = styled.a`
   transition: transform 1000ms;
@@ -68,17 +73,19 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 0;
 `;
 
 const Li = styled.li`
   border-radius: 5px;
-  transition: transform 1000ms;
+  transition: transform 1s;
   a {
     text-decoration: none;
-    color: #65b8bf;
+    color: #ffc95f;
+    font-weight: 900;
   }
   &:hover {
-    transition: transform 300msms;
+    transition: transform 0.7s;
     transform: scale(1.3);
     box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
       rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px,
