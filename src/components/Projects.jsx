@@ -1,57 +1,38 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import JavaScriptIcon from "../assets/javascript.png";
 import CssIcon from "../assets/css.png";
 import HtmlIcon from "../assets/html.png";
 import ReactIcon from "../assets/react.png";
 import NyanCat from "../assets/nyan-cat.jpg";
 import Placeholder from "../assets/placeholder.png";
-import { useEffect, useState } from "react";
 
 const Projects = () => {
-  const [circles, setCircles] = useState([]);
-
-  useEffect(() => {
-    const generateRandomCircles = () => {
-      const newCircles = [];
-      for (let i = 0; i < 10; i++) {
-        const randomTop = Math.floor(Math.random() * window.innerHeight);
-        const randomLeft = Math.floor(Math.random() * window.innerWidth);
-        newCircles.push({ top: randomTop, left: randomLeft });
-      }
-      setCircles(newCircles);
-    };
-
-    generateRandomCircles();
-  }, []);
   return (
     <Container>
-      <div>
-        {circles.map((circle, index) => (
-          <Circle
-            key={index}
-            style={{ top: circle.top + "px", left: circle.left + "px" }}
-          />
-        ))}
-      </div>
-      <SkillsDiv>These are my current skils:</SkillsDiv>
       <IconDiv>
         <Icon>
           <Img src={JavaScriptIcon} alt="JavaScriptIcon" />
-          <Skills>JavaScript</Skills>
         </Icon>
         <Icon>
           <Img src={ReactIcon} alt="ReactIcon" />
-          <Skills>React</Skills>
         </Icon>
         <Icon>
           <Img src={CssIcon} alt="CssIcon" />
-          <Skills>Css</Skills>
         </Icon>
         <Icon>
           <Img src={HtmlIcon} alt="HtmlIcon" />
-          <Skills>Html</Skills>
         </Icon>
       </IconDiv>
+      <SkillsDiv>
+        As a full-stack developer, I possess the ability to not only translate
+        design concepts into visually appealing web pages but also to develop
+        intricate functionality and interactive features that enhance user
+        experiences. <br /> I am adept at crafting responsive user interfaces
+        that seamlessly adapt across different devices as well as
+        well-structured web pages.s
+        <Span>Here are some of my projects!</Span>
+      </SkillsDiv>
+
       <Images>
         <ImgContainer>
           <a
@@ -87,13 +68,13 @@ const Projects = () => {
   );
 };
 
-const Circle = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #3498db;
-  border-radius: 50%;
-  position: absolute;
-  z-index: -1;
+const Span = styled.span`
+  padding-top: 20px;
+  font-weight: 900;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #c780fa;
+  font-size: 20px;
 `;
 
 const GameText = styled.p`
@@ -137,6 +118,9 @@ const Container = styled.div`
 const SkillsDiv = styled.div`
   margin-left: 25px;
   font-weight: 900;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
 `;
 
 const Images = styled.div`
@@ -148,26 +132,10 @@ const Images = styled.div`
   padding-top: 45px;
 `;
 
-const slideAnimation = keyframes`
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-`;
-
-const Skills = styled.p`
-  text-align: center;
-  font-style: italic;
-  opacity: 0.5;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: ${slideAnimation} 1s linear 1;
-`;
-
 const Icon = styled.a`
   transition: transform 1000ms;
+  margin: 10px;
+  margin-left: 20px;
   &:hover {
     transform: translate(2px);
   }
@@ -189,7 +157,6 @@ const GameImg = styled.img`
 
 const IconDiv = styled.div`
   display: flex;
-  justify-content: space-evenly;
 `;
 
 const Img = styled.img`

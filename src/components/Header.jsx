@@ -51,6 +51,8 @@ const Anchor = styled.a`
 const Div = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-right: 10px;
+  margin-top: 10px;
 `;
 
 const Img = styled.img`

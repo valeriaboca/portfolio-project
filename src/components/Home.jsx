@@ -1,11 +1,9 @@
 import styled, { keyframes } from "styled-components";
 import { useState, useEffect } from "react";
 import BackgroundImage from "../assets/background.jpg";
-import About from "./About";
-import Projects from "./Projects";
 
 const InteractiveGreeting = () => {
-  const greetings = ["Adaptive Web", "Full-Stack", "Sleep Deprived"];
+  const greetings = ["Full-Stack", "Adaptive Web", "Sleep Deprived"];
   const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
 
   useEffect(() => {
@@ -47,17 +45,9 @@ const Home = () => {
           </Text>
         </StyledHome>
       </div>
-      <Container>
-        <About />
-        <Projects />
-      </Container>
     </>
   );
 };
-
-const Container = styled.div`
-  margin-top: 207px;
-`;
 
 const highlightAnimation = keyframes`
   to {
