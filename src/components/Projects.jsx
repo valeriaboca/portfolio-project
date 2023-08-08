@@ -29,7 +29,7 @@ const Projects = () => {
         intricate functionality and interactive features that enhance user
         experiences. <br /> I am adept at crafting responsive user interfaces
         that seamlessly adapt across different devices as well as
-        well-structured web pages.s
+        well-structured web pages.
         <Span>Here are some of my projects!</Span>
       </SkillsDiv>
 
